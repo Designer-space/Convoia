@@ -2,6 +2,7 @@ import React, { Suspense, useState, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 import {
 	AppBar,
+	Backdrop,
 	Box,
 	IconButton,
 	Toolbar,
@@ -18,6 +19,8 @@ import {
 } from "@mui/icons-material";
 import { orange } from "../constants/color";
 const Search = lazy(() => import("../specific/Search"));
+const Notifications = lazy(() => import("../specific/Notifications"));
+const NewGroup = lazy(() => import("../specific/NewGroup"));
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -114,8 +117,18 @@ const Header = () => {
 			</Box>
 
 			{isSearch && (
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense fallback={<Backdrop open />}>
 					<Search />
+				</Suspense>
+			)}
+			{isNotification && (
+				<Suspense fallback={<Backdrop open />}>
+					<Notifications />
+				</Suspense>
+			)}
+			{isNewGroup && (
+				<Suspense fallback={<Backdrop open />}>
+					<NewGroup />
 				</Suspense>
 			)}
 		</>
