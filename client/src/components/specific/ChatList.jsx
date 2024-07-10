@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack } from "@mui/material";
+import { Divider, Stack } from "@mui/material";
 import ChatItem from "../shared/ChatItem";
 
 const ChatList = ({

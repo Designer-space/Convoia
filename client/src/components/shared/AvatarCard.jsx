@@ -9,8 +9,13 @@ const AvatarCard = ({ avatar = [], max = 4 }) => {
 		>
 			<AvatarGroup max={max}>
 				<Box
-					width={"5rem"}
+					width={"3rem"}
 					height={"3rem"}
+					sx={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+					}}
 				>
 					{avatar.map((src, i) => (
 						<Avatar
@@ -18,13 +23,8 @@ const AvatarCard = ({ avatar = [], max = 4 }) => {
 							src={src}
 							alt={`Avatar ${i}`}
 							sx={{
-								width: "3rem",
-								height: "3rem",
-								position: "absolute",
-								left: {
-									xs: `${0.5 + i}rem`,
-									sm: `${i}rem`,
-								},
+								width: "2rem",
+								height: "2rem",
 							}}
 						/>
 					))}

@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 import { Link } from "../styles/StyledComponents";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography } from "@mui/material";
 import AvatarCard from "./AvatarCard";
 
 const ChatItem = ({
@@ -23,19 +23,20 @@ const ChatItem = ({
 			onContextMenu={(e) => handleDeleteChat(e, _id, groupChat)}
 		>
 			<div
+				className={`${sameSender ? "pattern" : ""}`}
 				style={{
 					display: "flex",
 					alignItems: "center",
-					gap: "1rem",
-					padding: "1rem",
-					backgroundColor: sameSender ? "black" : "unset",
+					gap: ".5rem",
+					padding: ".5rem",
 					color: sameSender ? "white" : "unset",
 					position: "relative",
+					borderRadius: "2rem 0 0 2rem",
 				}}
 			>
 				<AvatarCard avatar={avatar} />
 				<Stack>
-					<Typography>{name}</Typography>
+					<Typography fontWeight={500}>{name}</Typography>
 					{newMessageAlert && (
 						<Typography>{newMessageAlert.count} New Message</Typography>
 					)}
@@ -55,6 +56,7 @@ const ChatItem = ({
 					)}
 				</Stack>
 			</div>
+			<Divider orientation='horizontal' />
 		</Link>
 	);
 };
