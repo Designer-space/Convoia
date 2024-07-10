@@ -54,3 +54,38 @@ export const sampleNotifications = [
     _id: "2",
   }
 ]
+
+export const sampleMessage = [
+  {
+    attachment: [
+      {
+        public_id: "asldfhl",
+        url: "https://3.img-dpreview.com/files/p/TS1200x900~sample_galleries/2829048177/2548548355.jpg"
+      }
+    ],
+    content: "Sample message for building UI",
+    _id: "aklsjdhfskldjf",
+    sender: {
+      _id: "user._id",
+      name: "Unknown"
+    },
+    chat: "chatId",
+    createdAt: "2024-07-10T06:16:07.682Z"
+  },
+  {
+    attachments: [
+      {
+        public_id: "asldfhlasda",
+        url: "https://3.img-dpreview.com/files/p/TS1200x900~sample_galleries/2829048177/2548548355.jpg"
+      }
+    ],
+    content: "Sample message No 2 for building UI sadkjfskndlfgjnalsdgnfasdg sdfg sdjfhg dfg hsdfjhgbdjf dsjfhgsdf",
+    _id: "aklsjdhfskldjfasdf",
+    sender: {
+      _id: "laskdfjhj",
+      name: "Unknown 2"
+    },
+    chat: "chatId",
+    createdAt: "2024-07-10T06:16:07.682Z"
+  }
+]

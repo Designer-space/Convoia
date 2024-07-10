@@ -1,12 +1,20 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import AppLayout from "../components/layout/AppLayout";
 import { IconButton, Stack } from "@mui/material";
-import { gray, orange } from "../components/constants/color";
+import { orange } from "../components/constants/color";
 import {
 	AttachFile as AttachFileIcon,
 	Send as SendIcon,
 } from "@mui/icons-material";
 import { InputBox } from "../components/styles/StyledComponents";
+import FileMenu from "../components/dialog/FileMenu";
+import { sampleMessage } from "../components/constants/sampleData";
+import MessageComponent from "../components/shared/MessageComponent";
+
+const user = {
+	_id: "laskdfjhj",
+	name: "No Name",
+};
 
 const Chat = () => {
 	const containerRef = useRef(null);
@@ -30,8 +38,13 @@ const Chat = () => {
 						overflowY: "auto",
 					}}
 				>
-					{" "}
-					{/* Messages */}{" "}
+					{sampleMessage.map((msg) => (
+						<MessageComponent
+							key={msg._id}
+							message={msg}
+							user={user}
+						/>
+					))}
 				</Stack>
 				<form
 					style={{
@@ -81,6 +94,7 @@ const Chat = () => {
 						</IconButton>
 					</Stack>
 				</form>
+				<FileMenu />
 			</div>
 		</>
 	);
