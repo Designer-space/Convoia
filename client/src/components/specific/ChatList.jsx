@@ -19,6 +19,10 @@ const ChatList = ({
 		<Stack
 			width={w}
 			direction={"column"}
+			sx={{
+				height: "100vh",
+				overflow: "auto",
+			}}
 		>
 			{chats?.map((data, i) => {
 				const { avatar, _id, name, groupChat, members } = data;

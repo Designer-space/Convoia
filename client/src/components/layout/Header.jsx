@@ -60,6 +60,10 @@ const Header = () => {
 					position='static'
 					sx={{
 						bgcolor: orange,
+						paddingBlock: {
+							xs: ".25rem",
+							sm: "0",
+						},
 					}}
 				>
 					<Toolbar>
@@ -77,10 +81,7 @@ const Header = () => {
 								display: { xs: "block", sm: "none" },
 							}}
 						>
-							<IconButton
-								color='inherit'
-								onClick={handelMobile}
-							>
+							<IconButton color='inherit' onClick={handelMobile}>
 								<MenuIcon />
 							</IconButton>
 						</Box>
@@ -138,11 +139,7 @@ const Header = () => {
 const IconBtn = ({ title, icon, onClick }) => {
 	return (
 		<Tooltip title={title}>
-			<IconButton
-				color='inherit'
-				size='large'
-				onClick={onClick}
-			>
+			<IconButton color='inherit' size='large' onClick={onClick}>
 				{icon}
 			</IconButton>
 		</Tooltip>

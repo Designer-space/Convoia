@@ -4,17 +4,23 @@ import { Box, Typography } from "@mui/material";
 
 const Home = () => {
 	return (
-		<Box
-			bgcolor={"rgba(0,0,0,0.1)"}
-			height={"100%"}
-		>
-			<Typography
-				p={"2rem"}
-				variant='h5'
-				textAlign={"center"}
+		<Box height={"100%"}>
+			<div
+				className='pattern'
+				style={{
+					height: "100%",
+				}}
 			>
-				Select a Friend to Chat
-			</Typography>
+				<Typography
+					p={"2rem"}
+					variant='h5'
+					textAlign={"center"}
+					// bgcolor={"white"}
+					color={"white"}
+				>
+					Select a Friend to Chat
+				</Typography>
+			</div>
 		</Box>
 	);
 };
