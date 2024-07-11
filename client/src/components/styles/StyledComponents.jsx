@@ -36,3 +36,26 @@ export const InputBox = styled("input")({
 	accentColor: orange,
 	color: "rgba(0,0,0,.8)",
 });
+
+export const SearchField = styled("input")({
+	maxWidth: "350px",
+	width: "100%",
+	border: "none",
+	outline: "none",
+	borderRadius: "1.5rem",
+	fontSize: "1.1rem",
+	backgroundColor: "rgba(0,0,0,0.2)",
+});
+
+export const CurveButton = styled("button")({
+	fontSize: "1.1rem",
+	color: "white",
+	borderRadius: "1.5rem",
+	backgroundColor: "black",
+	cursor: "pointer",
+	border: "none",
+	outline: "none",
+	":hover": {
+		backgroundColor: "rgba(0,0,0,0.8)",
+	},
+});
