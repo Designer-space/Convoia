@@ -13,6 +13,7 @@ import {
 	CurveButton,
 	SearchField,
 } from "../../../components/styles/StyledComponents";
+import { DoughnutChart, LineChart } from "../../../components/specific/Charts";
 
 const Dashboard = () => {
 	const Widgets = (
@@ -45,12 +46,13 @@ const Dashboard = () => {
 							borderRadius: "1rem",
 							maxWidth: "45rem",
 							width: "100%",
+							height: "25rem",
 						}}
 					>
 						<Typography variant='h4' margin={"2rem 0"}>
 							Last Messages
 						</Typography>
-						{"Chat"}
+						<LineChart value={[65, 64, 26, 26]} />
 					</Paper>
 
 					<Paper
@@ -67,10 +69,11 @@ const Dashboard = () => {
 							},
 							maxWidth: "25rem",
 							width: "100%",
+							height: "25rem",
 							position: "relative",
 						}}
 					>
-						{"some paper"}
+						<DoughnutChart />
 
 						<Stack
 							position={"absolute"}
