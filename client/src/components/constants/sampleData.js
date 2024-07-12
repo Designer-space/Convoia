@@ -192,5 +192,66 @@ export const dashboardData = {
         avatar: "https://avatar.iran.liara.run/public/1"
       },
     },
+  ],
+
+  messages: [
+    {
+      attachment: [],
+      content: "Sample message for building UI",
+      _id: "aklsjdhfsuikkldjasdf",
+      sender: {
+        avatar: "https://avatar.iran.liara.run/public/21",
+        name: "Unknown"
+      },
+      chat: "chatId",
+      groupChat: false,
+      createdAt: "2024-07-10T06:16:07.682Z"
+    },
+    {
+      attachments: [
+        {
+          public_id: "asldfhlasda",
+          url: "https://3.img-dpreview.com/files/p/TS1200x900~sample_galleries/2829048177/2548548355.jpg"
+        }
+      ],
+      content: "Sample message No 2 for building UI sadkjfskndlfgjnalsdgnfasdg sdfg sdjfhg dfg hsdfjhgbdjf dsjfhgsdf",
+      _id: "aknblsjdhfsklldjfasdf",
+      sender: {
+        avatar: "https://avatar.iran.liara.run/public/23",
+        name: "Unknown 2"
+      },
+      chat: "chatId",
+      groupChat: false,
+      createdAt: "2024-07-10T06:16:07.682Z"
+    },
+    {
+      attachment: [],
+      content: "Sample message No 3 for building UI",
+      _id: "aklsjdhfgfskldjf",
+      sender: {
+        avatar: "https://avatar.iran.liara.run/public/20",
+        name: "Unknown"
+      },
+      chat: "chatId",
+      groupChat: true,
+      createdAt: "2024-07-10T06:16:07.682Z"
+    },
+    {
+      attachments: [
+        {
+          public_id: "asldfhlasda",
+          url: "https://3.img-dpreview.com/files/p/TS1200x900~sample_galleries/2829048177/2548548355.jpg"
+        }
+      ],
+      content: "Sample message No 4 for building UI sadkjfskndlfgjnalsdgnfasdg sdfg sdjfhg dfg hsdfjhgbdjf dsjfhgsdf",
+      _id: "aklsjdhfssdgkldjfasdf",
+      sender: {
+        avatar: "https://avatar.iran.liara.run/public/22",
+        name: "Unknown 2"
+      },
+      chat: "chatId",
+      groupChat: true,
+      createdAt: "2024-07-10T06:16:07.682Z"
+    },
   ]
 }
