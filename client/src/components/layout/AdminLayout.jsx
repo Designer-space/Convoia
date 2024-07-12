@@ -162,7 +162,6 @@ const Sidebar = ({ w = "100%" }) => {
 						</Stack>
 					</Link>
 				))}
-				<Box flexGrow={1} />
 				<Link onClick={logoutHandler}>
 					<Stack direction={"row"} alignItems={"center"} spacing={"1rem"}>
 						<ExitToAppIcon />

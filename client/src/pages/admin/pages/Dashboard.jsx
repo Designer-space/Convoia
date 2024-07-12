@@ -38,15 +38,22 @@ const Dashboard = () => {
 			<Container component={"main"}>
 				{Appbar}
 
-				<Stack direction={"row"} spacing={"2rem"} flexWrap={"wrap"}>
+				<Stack
+					direction={"row"}
+					justifyContent={"center"}
+					gap={"2rem"}
+					flexWrap={"wrap"}
+				>
 					<Paper
 						elevation={3}
 						sx={{
-							padding: "2rem 3.5rem",
+							padding: {
+								xs: ".5rem",
+								sm: "2rem 3.5rem",
+							},
 							borderRadius: "1rem",
 							maxWidth: "45rem",
 							width: "100%",
-							height: "25rem",
 						}}
 					>
 						<Typography variant='h4' margin={"2rem 0"}>
@@ -69,11 +76,13 @@ const Dashboard = () => {
 							},
 							maxWidth: "25rem",
 							width: "100%",
-							height: "25rem",
 							position: "relative",
 						}}
 					>
-						<DoughnutChart />
+						<DoughnutChart
+							labels={["Single Chats", "Group Chats"]}
+							value={[23, 66]}
+						/>
 
 						<Stack
 							position={"absolute"}
@@ -161,6 +170,7 @@ const Widget = ({ title, value, icon }) => {
 				margin: "2rem 0",
 				borderRadius: "1rem",
 				width: "20rem",
+				marginInline: ".5rem",
 			}}
 		>
 			<Stack alignItems={"center"} spacing={"1rem"}>
