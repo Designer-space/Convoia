@@ -12,7 +12,8 @@ export const sampleChats = [
     _id: "2",
     groupChat: false,
     members: ["1", "2"]
-  }
+  },
+
 ]
 
 export const sampleUsers = [
@@ -123,6 +124,73 @@ export const dashboardData = {
       username: "jake_doe",
       friends: 44,
       groups: 4
+    },
+  ],
+
+  chats: [
+    {
+      name: "Group 1",
+      avatar: ["https://avatar.iran.liara.run/public/6"],
+      _id: "1",
+      groupChat: false,
+      members: [
+        { _id: "1", avatar: "https://avatar.iran.liara.run/public/10" },
+        { _id: "2", avatar: "https://avatar.iran.liara.run/public/11" },
+      ],
+      totalMembers: 2,
+      totalMessages: 20,
+      creator: {
+        name: "Jhon Doe",
+        avatar: "https://avatar.iran.liara.run/public/3"
+      },
+    },
+    {
+      name: "Group 2 asdfnbasd askdjfbjklsd",
+      avatar: ["https://avatar.iran.liara.run/public/7"],
+      _id: "2",
+      groupChat: false,
+      members: [
+        { _id: "1", avatar: "https://avatar.iran.liara.run/public/12" },
+        { _id: "2", avatar: "https://avatar.iran.liara.run/public/13" },
+      ],
+      totalMembers: 2,
+      totalMessages: 20,
+      creator: {
+        name: "Jake Doe",
+        avatar: "https://avatar.iran.liara.run/public/4"
+      },
+    },
+    {
+      name: "Group 3",
+      avatar: ["https://avatar.iran.liara.run/public/8"],
+      _id: "3",
+      groupChat: false,
+      members: [
+        { _id: "1", avatar: "https://avatar.iran.liara.run/public/14" },
+        { _id: "2", avatar: "https://avatar.iran.liara.run/public/15" },
+      ],
+      totalMembers: 2,
+      totalMessages: 20,
+      creator: {
+        name: "Jenny Doe",
+        avatar: "https://avatar.iran.liara.run/public/2"
+      },
+    },
+    {
+      name: "Group 4",
+      avatar: ["https://avatar.iran.liara.run/public/9"],
+      _id: "4",
+      groupChat: false,
+      members: [
+        { _id: "1", avatar: "https://avatar.iran.liara.run/public/16" },
+        { _id: "2", avatar: "https://avatar.iran.liara.run/public/17" },
+      ],
+      totalMembers: 2,
+      totalMessages: 20,
+      creator: {
+        name: "Jane Doe",
+        avatar: "https://avatar.iran.liara.run/public/1"
+      },
     },
   ]
 }
