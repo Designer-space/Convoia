@@ -89,3 +89,40 @@ export const sampleMessage = [
     createdAt: "2024-07-10T06:16:07.682Z"
   }
 ]
+
+export const dashboardData = {
+  users: [
+    {
+      avatar: "https://avatar.iran.liara.run/public/89",
+      name: "Jhon Doe",
+      _id: "1",
+      username: "jhon_doe",
+      friends: 10,
+      groups: 4
+    },
+    {
+      avatar: "https://avatar.iran.liara.run/public/4",
+      name: "Jane Doe",
+      _id: "2",
+      username: "jane_doe",
+      friends: 22,
+      groups: 2
+    },
+    {
+      avatar: "https://avatar.iran.liara.run/public/9",
+      name: "Jenny Doe",
+      _id: "3",
+      username: "janny_doe",
+      friends: 33,
+      groups: 3
+    },
+    {
+      avatar: "https://avatar.iran.liara.run/public/7",
+      name: "Jake Doe",
+      _id: "4",
+      username: "jake_doe",
+      friends: 44,
+      groups: 4
+    },
+  ]
+}
