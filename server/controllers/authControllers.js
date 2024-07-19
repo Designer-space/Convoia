@@ -44,9 +44,15 @@ export const login = TryCatch(
 )
 
 export const logout = (req, res) => {
-  res.json({ data: "You hit the login EndPoint" })
+  res.cookie("convoia-token", "", {
+    maxAge: 0
+  })
+  return res.status(200).json({ message: "Logout Succesfully" })
 }
 
 export const getme = (req, res) => {
-  res.json({ data: "You hit the GetMe EndPoint" })
+
+  const user = req.user
+
+  return res.status(200).json(user)
 }
