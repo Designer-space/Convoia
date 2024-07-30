@@ -8,11 +8,11 @@ import { errorMiddleware } from "./middlewares/error.js";
 import authRoutes from "./routes/authRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import chatRoutes from "./routes/chatRoutes.js"
-import { createUser } from "./seeders/chatSeeders.js";
 
 dotenv.config()
 
 const PORT = process.env.PORT;
+
 
 const app = express()
 
