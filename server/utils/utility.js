@@ -5,4 +5,8 @@ class ErrorHandler extends Error {
   }
 }
 
-export { ErrorHandler }
+const deleteFileFromCloudinary = (public_id) => {
+  // Delete file from cloudinary
+}
+
+export { ErrorHandler, deleteFileFromCloudinary }
