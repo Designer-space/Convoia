@@ -12,8 +12,6 @@ export const createNewGroup = TryCatch(
 
     const { name, members } = req.body;
 
-    if (members.length < 2) return next(new ErrorHandler("Groups must have at least 2 members", 400))
-
     const allmembers = [...members, req.user._id]
 
     await Chat.create({
