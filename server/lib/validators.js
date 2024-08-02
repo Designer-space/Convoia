@@ -46,5 +46,12 @@ const renameGroupValidator = () => [
   param("id", "Chat ID is required").notEmpty().escape(),
   body("name", "New Name is required").notEmpty().escape(),
 ]
+const sendFriendRequestValidator = () => [
+  body("userId", "UserId is required").notEmpty().escape(),
+]
+const acceptFriendRequestValidator = () => [
+  body("requestId", "Request ID is required").notEmpty().escape(),
+  body("accept").notEmpty().withMessage("Please Add Accept").escape().isBoolean().withMessage("Accept must be a boolean"),
+]
 
-export { signUpValidator, loginValidator, validateHandler, createNewGroupValidator, addGroupMembersValidator, removeGroupMemberValidator, sendAttachmentsValidator, chatIdValidator, renameGroupValidator }
+export { signUpValidator, loginValidator, validateHandler, createNewGroupValidator, addGroupMembersValidator, removeGroupMemberValidator, sendAttachmentsValidator, chatIdValidator, renameGroupValidator, sendFriendRequestValidator, acceptFriendRequestValidator }
