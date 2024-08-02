@@ -10,7 +10,7 @@ const AdminLogin = () => {
 	const submitHandler = () => {};
 
 	if (isAdmin) {
-		return <Navigate to={"/admin/dashbord"} />;
+		return <Navigate to={"/admin/dashboard"} />;
 	}
 
 	return (
