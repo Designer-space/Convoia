@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken"
 import { TryCatch } from "./error.js";
 import { User } from "../models/user.js";
 import { ErrorHandler } from "../utils/utility.js";
+import { adminSecretKey } from "../app.js";
 
 const protectRoutes = TryCatch(
   async (req, res, next) => {
@@ -24,4 +25,21 @@ const protectRoutes = TryCatch(
   }
 )
 
-export { protectRoutes }
+const protectAdminRoutes = TryCatch(
+  async (req, res, next) => {
+
+    const adminToken = req.cookies["convoia-admin-token"]
+
+    if (!adminToken) return next(new ErrorHandler("Unauthorized: Only Admins Can Access This Route", 401))
+
+    const adminSecret = jwt.verify(adminToken, process.env.JWT_SECRET);
+
+    const isMatched = adminSecret === adminSecretKey;
+
+    if (!isMatched) return next(new ErrorHandler("Invalid Admin Credentials", 401))
+
+    next();
+  }
+)
+
+export { protectRoutes, protectAdminRoutes }

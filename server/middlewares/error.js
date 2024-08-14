@@ -5,7 +5,12 @@ const errorMiddleware = (err, req, res, next) => {
 
   if (err.name === "CastError" && err.kind === "ObjectId") {
     err.statusCode = 404;
-    err.message = "Resource Not Found"
+    err.message = `Invalid Format of ${err.path}`
+  }
+
+  if (err.code === 11000) {
+    err.statusCode = 400
+    err.message = `${Object.keys(err.keyValue)} field has to be unique`
   }
 
   return res.status(err.statusCode).json({
