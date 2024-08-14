@@ -4,26 +4,32 @@ import { generateTokenAndSetCookie } from "../utils/generateToken.js"
 import { TryCatch } from "../middlewares/error.js"
 import { ErrorHandler } from "../utils/utility.js"
 
-export const signup = async (req, res) => {
+export const signup = TryCatch(
+  async (req, res, next) => {
 
-  const { name, username, password, bio } = req.body
+    const { name, username, password, bio } = req.body
 
-  const avatar = {
-    public_id: "asdfgh",
-    url: "http://helloworld.com"
+    const file = req.file
+
+    if (!file) return next(new ErrorHandler("Please Upload Profile Picture", 400))
+
+    const avatar = {
+      public_id: "asdfgh",
+      url: "http://helloworld.com"
+    }
+
+    const user = await User.create({
+      name, username, password, bio, avatar
+    })
+
+    generateTokenAndSetCookie(user._id, res)
+
+    res.status(201).json({
+      message: "User Created Successfully"
+    })
+
   }
-
-  const user = await User.create({
-    name, username, password, bio, avatar
-  })
-
-  generateTokenAndSetCookie(user._id, res)
-
-  res.status(201).json({
-    message: "User Created Successfully"
-  })
-
-}
+)
 export const login = TryCatch(
   async (req, res, next) => {
 
