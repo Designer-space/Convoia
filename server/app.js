@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import { Server } from "socket.io";
 import { createServer } from "http";
 import { v4 as uuid } from "uuid";
+import cors from "cors";
 
 import connectMongoDB from "./utils/connectMongoDB.js";
 import { errorMiddleware, TryCatch } from "./middlewares/error.js";
@@ -34,6 +35,10 @@ const io = new Server(server, {})
 // Middleware
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors({
+  origin: ["http://localhost:5173", "http://localhost:4173", process.env.CLIENT_URL],
+  credentials: true
+}))
 
 
 // API Routes
