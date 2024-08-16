@@ -8,9 +8,9 @@ import "./index.css";
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
 		<HelmetProvider>
-			{/* <div onContextMenu={(e) => e.preventDefault()}> */}
-			<App />
-			{/* </div> */}
+			<div onContextMenu={(e) => e.preventDefault()}>
+				<App />
+			</div>
 		</HelmetProvider>
 	</React.StrictMode>
 );
