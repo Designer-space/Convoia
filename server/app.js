@@ -37,10 +37,10 @@ app.use(cookieParser())
 
 
 // API Routes
-app.use("/api/auth", authRoutes)
-app.use("/api/user", userRoutes)
-app.use("/api/chat", chatRoutes)
-app.use("/api/admin", adminRoutes)
+app.use("/api/v1/auth", authRoutes)
+app.use("/api/v1/user", userRoutes)
+app.use("/api/v1/chat", chatRoutes)
+app.use("/api/v1/admin", adminRoutes)
 app.use(errorMiddleware)
 
 io.use(() => { })
