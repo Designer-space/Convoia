@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { userExists } from "../redux/reducer/auth";
+import { useFileHandler, useInputValidation } from "6pp";
+import toast from "react-hot-toast";
+
 import {
 	Avatar,
 	Button,
@@ -11,8 +17,8 @@ import {
 } from "@mui/material";
 import { CameraAlt as CameraAltIcon } from "@mui/icons-material";
 import { VisuallyHiddenInput } from "../components/styles/StyledComponents";
-import { useFileHandler, useInputValidation } from "6pp";
 import { usernameValidator } from "../utils/validators";
+import { server } from "../components/constants/config";
 
 const Login = () => {
 	const [isLogin, setIsLogin] = useState(true);
@@ -28,12 +34,57 @@ const Login = () => {
 
 	const avatar = useFileHandler("single");
 
-	const handelLogin = (e) => {
+	const dispatch = useDispatch();
+
+	const handelLogin = async (e) => {
 		e.preventDefault();
+		const config = {
+			withCredentials: true,
+			headers: {
+				"Content-Type": "application/json",
+			},
+		};
+
+		try {
+			const { data } = await axios.post(
+				`${server}api/v1/auth/login`,
+				{ username: username.value, password: password.value },
+				config
+			);
+			dispatch(userExists(true));
+			toast.success(data.message);
+		} catch (error) {
+			toast.error(error?.response?.data?.message || "Something went wrong");
+		}
 	};
 
-	const handelSignUp = (e) => {
+	const handelSignUp = async (e) => {
 		e.preventDefault();
+		const config = {
+			withCredentials: true,
+			headers: {
+				"Content-Type": "multipart/form-data",
+			},
+		};
+
+		const formData = new FormData();
+		formData.append("avatar", avatar.file);
+		formData.append("name", name.value);
+		formData.append("bio", bio.value);
+		formData.append("username", username.value);
+		formData.append("password", password.value);
+
+		try {
+			const { data } = await axios.post(
+				`${server}api/v1/auth/signup`,
+				formData,
+				config
+			);
+			dispatch(userExists(true));
+			toast.success(data.message);
+		} catch (error) {
+			toast.error(error?.response?.data?.message || "Something went wrong");
+		}
 	};
 
 	return (
@@ -133,11 +184,7 @@ const Login = () => {
 								}}
 								onSubmit={handelSignUp}
 							>
-								<Stack
-									position={"relative"}
-									width={"10rem"}
-									margin={"auto"}
-								>
+								<Stack position={"relative"} width={"10rem"} margin={"auto"}>
 									<Avatar
 										sx={{
 											width: "10rem",
@@ -211,10 +258,7 @@ const Login = () => {
 									onChange={username.changeHandler}
 								/>
 								{username.error && (
-									<Typography
-										color='error'
-										variant='caption'
-									>
+									<Typography color='error' variant='caption'>
 										{username.error}
 									</Typography>
 								)}
