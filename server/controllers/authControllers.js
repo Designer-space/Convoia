@@ -2,7 +2,7 @@ import { compare } from "bcrypt";
 import { User } from "../models/user.js";
 import { generateTokenAndSetCookie } from "../utils/generateToken.js";
 import { TryCatch } from "../middlewares/error.js";
-import { ErrorHandler } from "../utils/utility.js";
+import { ErrorHandler, uploadFilsToCloudinary } from "../utils/utility.js";
 
 export const signup = TryCatch(
   async (req, res, next) => {
@@ -13,9 +13,11 @@ export const signup = TryCatch(
 
     if (!file) return next(new ErrorHandler("Please Upload Profile Picture", 400));
 
+    const result = await uploadFilsToCloudinary([file]);
+
     const avatar = {
-      public_id: "asdfgh",
-      url: "http://helloworld.com"
+      public_id: result[0].public_id,
+      url: result[0].url
     };
 
     const user = await User.create({

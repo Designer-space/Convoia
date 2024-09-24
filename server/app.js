@@ -5,6 +5,7 @@ import { Server } from "socket.io";
 import { createServer } from "http";
 import { v4 as uuid } from "uuid";
 import cors from "cors";
+import { v2 as cloudinary } from "cloudinary";
 
 import connectMongoDB from "./utils/connectMongoDB.js";
 import { errorMiddleware, TryCatch } from "./middlewares/error.js";
@@ -25,6 +26,12 @@ export const adminSecretKey = process.env.ADMIN_SECRET_KEY || "12af6271e5634aacf
 export const userSocketIDs = new Map();
 
 connectMongoDB();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const app = express();
 
