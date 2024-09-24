@@ -22,6 +22,7 @@ import { server } from "../components/constants/config";
 
 const Login = () => {
 	const [isLogin, setIsLogin] = useState(true);
+	const [loading, setLoading] = useState(false);
 
 	function toggleLogin() {
 		setIsLogin((prev) => !prev);
@@ -45,6 +46,8 @@ const Login = () => {
 			},
 		};
 
+		setLoading(true);
+
 		try {
 			const { data } = await axios.post(
 				`${server}api/v1/auth/login`,
@@ -52,8 +55,10 @@ const Login = () => {
 				config
 			);
 			dispatch(userExists(true));
+			setLoading(false);
 			toast.success(data.message);
 		} catch (error) {
+			setLoading(false);
 			toast.error(error?.response?.data?.message || "Something went wrong");
 		}
 	};

@@ -5,7 +5,7 @@ import { LayoutLoader } from "./components/layout/Loaders";
 import axios from "axios";
 import { server } from "./components/constants/config";
 import { useDispatch, useSelector } from "react-redux";
-import { userNotExists } from "./redux/reducer/auth";
+import { userExists, userNotExists } from "./redux/reducer/auth";
 import { Toaster } from "react-hot-toast";
 
 // Normal Routes
@@ -24,8 +24,6 @@ const MessageManagement = lazy(() =>
 	import("./pages/admin/pages/MessageManagement")
 );
 
-const user = true;
-
 const App = () => {
 	const { user, loader } = useSelector((state) => state.auth);
 
@@ -33,8 +31,8 @@ const App = () => {
 
 	useEffect(() => {
 		axios
-			.get(`${server}api/v1/auth/me`)
-			.then((res) => console.log(res))
+			.get(`${server}api/v1/auth/me`, { withCredentials: true })
+			.then(({ data }) => dispatch(userExists(data)))
 			.catch((err) => dispatch(userNotExists()));
 	}, [dispatch]);
 
